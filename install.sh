@@ -60,6 +60,7 @@ main() {
     command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1 ||
         fail "curl or wget is required"
     need tar
+    need gzip
 
     tag=$(latest_tag) || fail "could not find the latest release"
     case "$tag" in
