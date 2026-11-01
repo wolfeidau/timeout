@@ -1,0 +1,15 @@
+[package]
+name = "timeout"
+version = "0.1.0"
+edition = "2024"
+description = "Small zero dependency replacement for GNU timeout"
+license = "Apache-2.0"
+repository = "https://github.com/wolfeidau/timeout"
+
+[dependencies]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"

@@ -1,0 +1,25 @@
+[settings]
+experimental = true
+lockfile = true
+
+[tools]
+goreleaser = "2.19.0"
+zig = "0.17.0"
+"aqua:rust-cross/cargo-zigbuild" = "0.24.0"
+
+[tools.rust]
+version = "1.99.1"
+profile = "default"
+targets = "x86_64-unknown-linux-musl,x86_64-apple-darwin,x86_64-pc-windows-gnu,aarch64-unknown-linux-musl,aarch64-apple-darwin"
+
+[tasks.lint]
+description = "Run formatting and clippy checks"
+run = "cargo fmt --check && cargo clippy --all-targets --locked -- -D warnings"
+
+[tasks.test]
+description = "Run tests"
+run = "cargo test --locked"
+
+[tasks.release-check]
+description = "Build a single-target snapshot release with GoReleaser"
+run = "goreleaser build --single-target --clean --snapshot"
