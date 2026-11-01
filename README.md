@@ -4,7 +4,19 @@ Small zero dependency timeout command to avoid needing to install all of coreuti
 
 ## Install
 
-Download the archive for your platform from [GitHub releases](https://github.com/wolfeidau/timeout/releases), extract it, and place `timeout` on your `PATH`.
+On Linux or macOS, install the latest release into `~/.local/bin`, verified against its published checksum:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/wolfeidau/timeout/main/install.sh | sh
+```
+
+Where `curl` isn't available, such as Alpine:
+
+```sh
+wget -qO- https://raw.githubusercontent.com/wolfeidau/timeout/main/install.sh | sh
+```
+
+For other platforms, download the archive from [GitHub releases](https://github.com/wolfeidau/timeout/releases), extract it, and place `timeout` on your `PATH`.
 
 ## Usage
 
